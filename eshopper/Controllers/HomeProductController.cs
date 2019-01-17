@@ -10,22 +10,22 @@ using eshopper.Models;
 
 namespace eshopper.Controllers
 {
-    public class ProductsController : Controller
+    public class HomeProductController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ProductsController(ApplicationDbContext context)
+        public HomeProductController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Products
+        // GET: HomeProduct
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Product.ToListAsync());
+            return View(await _context.HomeProducts.ToListAsync());
         }
 
-        // GET: Products/Details/5
+        // GET: HomeProduct/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace eshopper.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product
+            var homeProducts = await _context.HomeProducts
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            if (homeProducts == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(homeProducts);
         }
 
-        // GET: Products/Create
+        // GET: HomeProduct/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Products/Create
+        // POST: HomeProduct/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,Photo")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Price,Photo")] HomeProducts homeProducts)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                _context.Add(homeProducts);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(homeProducts);
         }
 
-        // GET: Products/Edit/5
+        // GET: HomeProduct/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace eshopper.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product.FindAsync(id);
-            if (product == null)
+            var homeProducts = await _context.HomeProducts.FindAsync(id);
+            if (homeProducts == null)
             {
                 return NotFound();
             }
-            return View(product);
+            return View(homeProducts);
         }
 
-        // POST: Products/Edit/5
+        // POST: HomeProduct/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Price,Photo")] Product product)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Price,Photo")] HomeProducts homeProducts)
         {
-            if (id != product.Id)
+            if (id != homeProducts.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace eshopper.Controllers
             {
                 try
                 {
-                    _context.Update(product);
+                    _context.Update(homeProducts);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.Id))
+                    if (!HomeProductsExists(homeProducts.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace eshopper.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(homeProducts);
         }
 
-        // GET: Products/Delete/5
+        // GET: HomeProduct/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace eshopper.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product
+            var homeProducts = await _context.HomeProducts
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            if (homeProducts == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(homeProducts);
         }
 
-        // POST: Products/Delete/5
+        // POST: HomeProduct/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var product = await _context.Product.FindAsync(id);
-            _context.Product.Remove(product);
+            var homeProducts = await _context.HomeProducts.FindAsync(id);
+            _context.HomeProducts.Remove(homeProducts);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductExists(string id)
+        private bool HomeProductsExists(string id)
         {
-            return _context.Product.Any(e => e.Id == id);
+            return _context.HomeProducts.Any(e => e.Id == id);
         }
     }
 }

@@ -14,5 +14,6 @@ namespace eshopper.Data
         {
         }
         public DbSet<eshopper.Models.Product> Product { get; set; }
+        public DbSet<eshopper.Models.HomeProducts> HomeProducts { get; set; }
     }
 }

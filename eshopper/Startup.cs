@@ -67,7 +67,7 @@ namespace eshopper
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=HomeProduct}/{action=Index}/{id?}");
             });
         }
     }

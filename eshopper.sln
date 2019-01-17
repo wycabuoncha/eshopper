@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshopper", "eshopper\eshopper.csproj", "{4EC3A65E-DC84-41D7-B877-A5C5815B7AEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eshopper_Tests", "eshopper_Tests\eshopper_Tests.csproj", "{C06AD057-2728-402C-94E2-1750509C2647}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4EC3A65E-DC84-41D7-B877-A5C5815B7AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EC3A65E-DC84-41D7-B877-A5C5815B7AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EC3A65E-DC84-41D7-B877-A5C5815B7AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C06AD057-2728-402C-94E2-1750509C2647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C06AD057-2728-402C-94E2-1750509C2647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C06AD057-2728-402C-94E2-1750509C2647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C06AD057-2728-402C-94E2-1750509C2647}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
